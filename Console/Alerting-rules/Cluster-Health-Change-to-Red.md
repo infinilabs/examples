@@ -1,22 +1,22 @@
 # Cluster Health Change to Red
 
 ## Rule Variables
-| field        | Descriction   |  eg  |
+| Field        | Descriction   |  eg  |
 | --------   | -----  | ----  |
-| ${UUID}     | The `UUID` value is consistent with the `_id` value |   cal8n7p7h710dpnogpsx     |
-| ${RESOURCE_ID}        |   The current Elasticsearch cluster_id   |   c6abfdovi074mgr185m2   |
-| ${RESOURCE_NAME}        |    The current Elasticsearch cluster_name    |  es-v710  |
+| ${RESOURCE_ID}        |   The Elasticsearch cluster_id   |   c6abfdovi074mgr185m2   |
+| ${RESOURCE_NAME}        |    The Elasticsearch cluster_name    |  es-v710  |
 | ${INFINI_CONSOLE_ENDPOINT}        |    The host address of the current Console UI    |  http://192.168.3.201:9000  |
 | ${SLACK_WEBHOOK_ENDPOINT}        |    The webhook address of the notification channel    |  https://hooks.slack.com/services/xxx/xxx/xxx  |
 | ${DINGTALK_WEBHOOK_ENDPOINT}        |    The  DingTalk webhook address of the notification channel    |  https://oapi.dingtalk.com/robot/send?access_token=xxx  |
 
-## Rule template
-Note: The following rule template content (available only after replacing the placeholder variable) can be directly copied to Console Command for execution to quickly create an alarm rule.
+## Rule Template
+Note: The following rule template content (available only after replacing the placeholder variable) can be directly copied to Console Command for execution to quickly create an rule.
 
 ```sh
-POST .infini_alert-rule/_doc/${UUID}
+#The `id` value is consistent with the `_id` value
+POST .infini_alert-rule/_doc/cal8n7p7h710dpnoaps0
 {
-    "id": "${UUID}",
+    "id": "cal8n7p7h710dpnoaps0",
     "created": "2022-06-16T01:47:11.326727124Z",
     "updated": "2022-07-13T04:00:06.181994982Z",
     "name": "Cluster Health Change to Red",
@@ -106,7 +106,7 @@ POST .infini_alert-rule/_doc/${UUID}
             {
                 "created": "2022-06-16T01:47:11.326727124Z",
                 "updated": "2022-06-16T01:47:11.326727124Z",
-                "name": "钉钉告警模板",
+                "name": "DingTalk",
                 "type": "webhook",
                 "webhook": {
                     "header_params": {

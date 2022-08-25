@@ -1,21 +1,21 @@
-# Cluster Health Change to Red
+# Disk utilization is Too High
 
 ## Rule Variables
-| field        | Descriction   |  eg  |
+| Field        | Descriction   |  eg  |
 | --------   | -----  | ----  |
-| ${UUID}     | The `UUID` value is consistent with the `_id` value |   cal8n7p7h710dpnogpsx     |
-| ${RESOURCE_ID}        |   The current Elasticsearch cluster_id   |   c6abfdovi074mgr185m2   |
-| ${RESOURCE_NAME}        |    The current Elasticsearch cluster_name    |  es-v710  |
+| ${RESOURCE_ID}        |   The Elasticsearch cluster_id   |   c6abfdovi074mgr185m2   |
+| ${RESOURCE_NAME}        |    The Elasticsearch cluster_name    |  es-v710  |
 | ${INFINI_CONSOLE_ENDPOINT}        |    The host address of the current Console UI    |  http://192.168.3.201:9000  |
 | ${SLACK_WEBHOOK_ENDPOINT}        |    The webhook address of the notification channel    |  https://hooks.slack.com/services/xxx/xxx/xxx  |
 
-## Rule template
-Note: The following rule template content (available only after replacing the placeholder variable) can be directly copied to Console Command for execution to quickly create an alarm rule.
+## Rule Template
+Note: The following rule template content (available only after replacing the placeholder variable) can be directly copied to Console Command for execution to quickly create an rule.
 
 ```sh
-POST .infini_alert-rule/_doc/${UUID}
+#The `id` value is consistent with the `_id` value
+POST .infini_alert-rule/_doc/cal8n7p7h710dpnogps1
 {
-    "id": "${UUID}",
+    "id": "cal8n7p7h710dpnogps1",
     "created": "2022-06-16T03:11:01.445958361Z",
     "updated": "2022-07-22T00:06:26.498903821Z",
     "name": "Disk utilization is Too High",
@@ -118,7 +118,7 @@ POST .infini_alert-rule/_doc/${UUID}
             {
                 "created": "0001-01-01T00:00:00Z",
                 "updated": "0001-01-01T00:00:00Z",
-                "name": "webhook",
+                "name": "Slack",
                 "type": "webhook",
                 "webhook": {
                     "header_params": {
