@@ -14,3 +14,4 @@
 - [Search latency is great than 500ms](./Console/Alerting-rules/Search-Latency-gte-500ms.md)
 - [Too Many Deleted Documents](./Console/Alerting-rules/Too-Many-Deleted-Documents.md)
 
+For more details, please visit https://console.infinilabs.com/
