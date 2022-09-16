@@ -3,8 +3,8 @@
 ## Rule Variables
 | Field        | Descriction   |  eg  |
 | --------   | -----  | ----  |
-| ${RESOURCE_ID}        |   The Elasticsearch cluster_id   |   c6abfdovi074mgr185m2   |
-| ${RESOURCE_NAME}        |    The Elasticsearch cluster_name    |  es-v710  |
+| ${RESOURCE_ID}        |   The Elasticsearch (configured in console.yml) internal id（not cluster_uuid）   |   c6abfdovi074mgr185m2   |
+| ${RESOURCE_NAME}        |    The Elasticsearch (configured in console.yml) cluster_name    |  es-v710  |
 | ${INFINI_CONSOLE_ENDPOINT}        |    The host address of the current Console UI    |  http://192.168.3.201:9000  |
 | ${WECHAT_WEBHOOK_ENDPOINT}        |    The webhook address of the notification channel    |  https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx  |
 
