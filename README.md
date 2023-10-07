@@ -15,3 +15,11 @@
 - [Too Many Deleted Documents](./Console/Alerting-rules/Too-Many-Deleted-Documents.md)
 
 For more details, please visit https://console.infinilabs.com/
+
+## Springboot 3.x for INFINI Easysearch
+
+[Springboot 3.x for Easysearch example](Easysearch/ezsboot/README.md)
+
+
+for more information, please join the Wechat / Discord channel for discussion.
+![discussion](docs/discussion.png)

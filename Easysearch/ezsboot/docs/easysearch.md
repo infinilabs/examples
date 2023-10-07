@@ -9,10 +9,6 @@ Easysearch [部署参考](https://infinilabs.com/docs/latest/easysearch/getting-
 - 关闭https，采用http及用户名和密码的方式
 - 开启Elasticsearch兼容性参数 `elasticsearch.api_compatibility: true`
 
-
-
-
-
-
+[配置文件示例](config/easysearch.yml)
 
 > 其他参考：[备份还原](https://infinilabs.com/docs/latest/easysearch/references/management/snapshot-restore/)

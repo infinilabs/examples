@@ -81,3 +81,5 @@
         return new ElasticsearchRestTemplate(easysearchClient());
     }
 ```
+
+> 如果您依然想使用最新的 Spring-Data-Elasticsearch 版本来访问 Easysearch ,请查看[补丁文件](patch/EasysearchConfig.java)
