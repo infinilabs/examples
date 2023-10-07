@@ -1,0 +1,66 @@
+---
+server:
+  port: 8081
+
+#easysearch 连接信息
+easysearch:
+  enable: true
+  host: 127.0.0.1:9200
+  connTimeout: 3000
+  socketTimeout: 5000
+  connectionRequestTimeout: 1000
+  username: admin
+  password: 82bc934c60666d6fdca8
+
+# 配置swagger文档的访问路径，访问地址：http://127.0.0.1:8080/swagger-ui.html
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# Logger Config
+logging:
+  level:
+    com.infinilabs: debug
+
+spring:
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+  config:
+    activate:
+      on-profile: dev
+---
+server:
+  port: 8082
+easysearch:
+  host: 127.0.0.1:9200
+  connTimeout: 3000
+  socketTimeout: 5000
+  connectionRequestTimeout: 1000
+  username: admin
+  password: 82bc934c60666d6fdca8
+spring:
+  config:
+    activate:
+      on-profile: stg
+---
+server:
+  port: 8083
+easysearch:
+  host: 127.0.0.1:9200
+  connTimeout: 3000
+  socketTimeout: 5000
+  connectionRequestTimeout: 1000
+  username: admin
+  password: 82bc934c60666d6fdca8
+spring:
+  config:
+    activate:
+      on-profile: prd
+---
+name: ezs
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev

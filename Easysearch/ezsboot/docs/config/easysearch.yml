@@ -1,0 +1,68 @@
+cluster.name: easysearch
+node.name: node-1
+#node.attr.rack: r1
+#path.data: /path/to/data
+#path.logs: /path/to/logs
+#bootstrap.memory_lock: true
+#network.host: 192.168.0.1
+#http.port: 9200
+#discovery.seed_hosts: ["host1", "host2"]
+#cluster.initial_master_nodes: ["node-1", "node-2"]
+#gateway.recover_after_nodes: 3
+action.destructive_requires_name: true
+cluster.routing.allocation.disk.threshold_enabled: false
+#node.max_local_storage_nodes: 3
+bootstrap.system_call_filter: false
+elasticsearch.api_compatibility: true
+
+security.enabled: true
+security.audit.type: noop
+security.ssl.transport.cert_file: instance.crt
+security.ssl.transport.key_file: instance.key
+security.ssl.transport.ca_file: ca.crt
+security.ssl.transport.skip_domain_verify: true
+security.ssl.http.enabled: false
+security.ssl.http.cert_file: instance.crt
+security.ssl.http.key_file: instance.key
+security.ssl.http.ca_file: ca.crt
+security.ssl.http.enabled_ciphers:
+  - "TLS_AES_128_GCM_SHA256"
+  - "TLS_AES_256_GCM_SHA384"
+  - "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+  - "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+  - "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+  - "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+  - "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+  - "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+security.ssl.http.enabled_protocols:
+  - "TLSv1.2"
+  - "TLSv1.3"
+security.ssl.transport.enabled_ciphers:
+  - "TLS_AES_128_GCM_SHA256"
+  - "TLS_AES_256_GCM_SHA384"
+  - "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+  - "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+  - "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+  - "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+  - "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+  - "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+security.ssl.transport.enabled_protocols:
+  - "TLSv1.2"
+  - "TLSv1.3"
+security.allow_default_init_securityindex: true
+
+security.nodes_dn:
+  - 'CN=infini.cloud,OU=UNIT,O=ORG,L=NI,ST=FI,C=IN'
+
+security.restapi.roles_enabled: [ "superuser", "security_rest_api_access" ]
+
+security.system_indices.enabled: true
+security.ssl.http.clientauth_mode: OPTIONAL
+security.system_indices.indices: [".infini-*"]
+
+#for admin dn
+## specify admin certs to operate against system indices, basic_auth is not required
+## curl -k --cert config/admin.crt --key config/admin.key -XDELETE 'https://localhost:9200/.infini-*/'
+security.authcz.admin_dn:
+  - 'CN=admin.infini.cloud,OU=UNIT,O=ORG,L=NI,ST=FI,C=IN'
+
