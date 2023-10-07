@@ -1,13 +1,13 @@
 # Easysearch 部署与配置调整
 
-> 建议采用jdk 17进行运行，[下载地址](https://release.infinilabs.com/easysearch/jdk/)
+> 建议采用 jdk 17 运行 Easysearch，[下载地址](https://release.infinilabs.com/easysearch/jdk/)
 
 Easysearch [部署参考](https://infinilabs.com/docs/latest/easysearch/getting-started/install/)
 
 ## 配置调整
 
-- 关闭https，采用http及用户名和密码的方式
-- 开启Elasticsearch兼容性参数 `elasticsearch.api_compatibility: true`
+- 关闭 https，采用 http 及用户名和密码的方式
+- 开启 Elasticsearch 兼容性参数 `elasticsearch.api_compatibility: true`
 
 [配置文件示例](config/easysearch.yml)
 

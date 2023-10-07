@@ -9,8 +9,8 @@ SpringBoot 3.x 集成 Springboot-Data-Elasticsearch 访问 Easysearch 示例。
 - JDK 17.0.6-zulu
 - Maven 3.9.0
 
-> [Easysearch 配置](docs/easysearch.md)  
-> [项目调整](docs/project.md)
+> 在运行本项目前，请部署好 [Easysearch](docs/easysearch.md)  
+> 本项目进行的具体调整请参考 [项目调整](docs/project.md)
 
 ## 配置修改
 
@@ -38,18 +38,19 @@ mvn clean install
 
 ### 增加数据
 
-> 通过swagger进行测试  
+> 通过 swagger 进行测试  
 > 打开浏览器访问  
 > http://localhost:8081/swagger-ui/index.html#/book-controller/addBook
 
 请求示例数据如下
+
 ```json
 {
-"title": "SpringBoot Easysearch 示例",
-"author": "极限科技",
-"county": "中国",
-"price": 666,
-"createTime": "2020-12-03T00:12:03.898Z"
+  "title": "SpringBoot Easysearch 示例",
+  "author": "极限科技",
+  "county": "中国",
+  "price": 666,
+  "createTime": "2020-12-03T00:12:03.898Z"
 }
 ```
 
@@ -57,7 +58,6 @@ mvn clean install
 
 > 打开浏览器访问  
 > http://localhost:8081/book/search?key=Easysearch
-
 
 ## 其他用例
 

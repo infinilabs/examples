@@ -1,12 +1,12 @@
-# 项目说明
+# 重要提示
 
-> 由于新版本的 Spring-Data-Elasticsearch 对集群的返回头是否存在`X-Elastic-Product`,并且api有了很大的变化，可能会存在兼容性的问题。
+> 由于新版本的 Spring-Data-Elasticsearch 对集群的返回头是否存在 `X-Elastic-Product` ,并且 api 有了很大的变化，可能会存在兼容性的问题。
 
-本项目推荐继续7.10.2版本的 High Level REST Client 来进行操作。
+因此本项目推荐继续使用 7.10.2 版本的 High Level REST Client 来进行操作。
 
 具体修改步骤如下：
 
-1. 修改pom.xml 依赖的版本
+1. 修改 pom.xml 依赖的版本
 
 ```xml
 <!-- 版本信息定义 -->
@@ -46,7 +46,8 @@
             <version>${easysearch.api.version}</version>
         </dependency>
 ```
-2. 使用 EasysearchConfig 进行客户端定义
+
+2. 使用 EasysearchConfig 配置客户端
 
 ```java
 @Lazy
@@ -82,4 +83,4 @@
     }
 ```
 
-> 如果您依然想使用最新的 Spring-Data-Elasticsearch 版本来访问 Easysearch ,请查看[补丁文件](patch/EasysearchConfig.java)
+> 如果您依然想使用最新的 Spring-Data-Elasticsearch 版本来访问 Easysearch ,请查看[补丁文件](patch/EasysearchConfig.java)(不推荐)。
