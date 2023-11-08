@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+//@Service
 public class BookService {
     private final BookEzsRepository bookEzsRepository;
 
@@ -18,7 +18,7 @@ public class BookService {
 
     public void addBook(Book book) {
         try {
-            bookEzsRepository.save(book);
+           // bookEzsRepository.save(book);
         } catch (Exception e) {
             LogUtil.error(String.format("保存ES错误！%s", e.getMessage()));
         }

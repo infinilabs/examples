@@ -12,9 +12,9 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.ssl.SSLContexts;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestClientBuilder;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.easysearch.client.RestClient;
+import org.easysearch.client.RestClientBuilder;
+import org.easysearch.client.RestHighLevelClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -151,11 +151,11 @@ public class EasysearchConfig {
     }
 
 
-    @Lazy
-    @Bean(name = {"elasticsearchOperations", "elasticsearchTemplate"})
-    public ElasticsearchRestTemplate elasticsearchTemplate() {
-        return new ElasticsearchRestTemplate(easysearchClient());
-    }
+//    @Lazy
+//    @Bean(name = {"elasticsearchOperations", "elasticsearchTemplate"})
+//    public ElasticsearchRestTemplate elasticsearchTemplate() {
+//        return new ElasticsearchRestTemplate(easysearchClient());
+//    }
 
     /**
      * 解析配置的字符串，转为HttpHost对象数组
