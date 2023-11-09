@@ -22,7 +22,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.util.StringUtils;
 
 import javax.net.ssl.SSLContext;
@@ -131,7 +130,9 @@ public class EasysearchConfig {
     public RestHighLevelClient easysearchClient() {
 
         // 初始化 RestClient, hostName 和 port 填写集群的内网 VIP 地址与端口
-        RestClientBuilder builder = RestClient.builder(toHttpHost()).setRequestConfigCallback(requestConfigBuilder -> requestConfigBuilder.setConnectTimeout(connTimeout).setSocketTimeout(socketTimeout).setConnectionRequestTimeout(connectionRequestTimeout));
+        RestClientBuilder builder = RestClient.builder(toHttpHost()).setRequestConfigCallback(requestConfigBuilder -> 
+            requestConfigBuilder.setConnectTimeout(connTimeout).setSocketTimeout(socketTimeout)
+                .setConnectionRequestTimeout(connectionRequestTimeout));
 
         // 保活策略
         builder.setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder.setDefaultIOReactorConfig(IOReactorConfig.custom().setSoKeepAlive(true).build()));
