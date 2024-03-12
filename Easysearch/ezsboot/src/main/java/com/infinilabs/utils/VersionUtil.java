@@ -2,8 +2,8 @@ package com.infinilabs.utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.easysearch.client.RequestOptions;
+import org.easysearch.client.RestHighLevelClient;
 
 import java.io.IOException;
 import java.util.Optional;

@@ -12,9 +12,9 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.ssl.SSLContexts;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestClientBuilder;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.easysearch.client.RestClient;
+import org.easysearch.client.RestClientBuilder;
+import org.easysearch.client.RestHighLevelClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -22,7 +22,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.util.StringUtils;
 
 import javax.net.ssl.SSLContext;
@@ -131,7 +130,9 @@ public class EasysearchConfig {
     public RestHighLevelClient easysearchClient() {
 
         // 初始化 RestClient, hostName 和 port 填写集群的内网 VIP 地址与端口
-        RestClientBuilder builder = RestClient.builder(toHttpHost()).setRequestConfigCallback(requestConfigBuilder -> requestConfigBuilder.setConnectTimeout(connTimeout).setSocketTimeout(socketTimeout).setConnectionRequestTimeout(connectionRequestTimeout));
+        RestClientBuilder builder = RestClient.builder(toHttpHost()).setRequestConfigCallback(requestConfigBuilder -> 
+            requestConfigBuilder.setConnectTimeout(connTimeout).setSocketTimeout(socketTimeout)
+                .setConnectionRequestTimeout(connectionRequestTimeout));
 
         // 保活策略
         builder.setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder.setDefaultIOReactorConfig(IOReactorConfig.custom().setSoKeepAlive(true).build()));
@@ -151,11 +152,11 @@ public class EasysearchConfig {
     }
 
 
-    @Lazy
-    @Bean(name = {"elasticsearchOperations", "elasticsearchTemplate"})
-    public ElasticsearchRestTemplate elasticsearchTemplate() {
-        return new ElasticsearchRestTemplate(easysearchClient());
-    }
+//    @Lazy
+//    @Bean(name = {"elasticsearchOperations", "elasticsearchTemplate"})
+//    public ElasticsearchRestTemplate elasticsearchTemplate() {
+//        return new ElasticsearchRestTemplate(easysearchClient());
+//    }
 
     /**
      * 解析配置的字符串，转为HttpHost对象数组

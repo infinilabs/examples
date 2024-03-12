@@ -2,12 +2,12 @@ package com.infinilabs;
 
 import com.alibaba.fastjson2.JSON;
 import com.infinilabs.utils.LogUtil;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.action.support.master.AcknowledgedResponse;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.CreateIndexRequest;
-import org.elasticsearch.client.indices.CreateIndexResponse;
+import org.easysearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.easysearch.action.support.master.AcknowledgedResponse;
+import org.easysearch.client.RequestOptions;
+import org.easysearch.client.RestHighLevelClient;
+import org.easysearch.client.indices.CreateIndexRequest;
+import org.easysearch.client.indices.CreateIndexResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
