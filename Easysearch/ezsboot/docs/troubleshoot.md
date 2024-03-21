@@ -9,4 +9,4 @@
 ## 服务端未开启 https
 ![服务端未开启 HTTPS](assets/server-no-https.jpg)
 
-> 如果服务端仅开启 https, 需要使用 http 协议进行连接
+> 如果服务端未开启 https, 需要使用 http 协议进行连接
