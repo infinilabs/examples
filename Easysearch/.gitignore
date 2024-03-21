@@ -1,0 +1,46 @@
+# IntelliJ IDEA
+.idea/
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven target directory
+target/
+target
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# NetBeans
+nbproject/private/
+build/
+
+# Gradle
+.gradle/
+build/
+
+# JRebel
+.rebel/
+
+# Mac OSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
