@@ -9,7 +9,7 @@ SpringBoot 2.x 访问 Easysearch 示例。
 - JDK 11.0.21-kona
 - Maven 3.9.0
 
-> 在运行本项目前，请部署好 [Easysearch](../docs/easysearch.md)
+> 在运行本项目前，请部署好 [Easysearch](/../docs/easysearch.md)
 
 ## 配置修改
 
