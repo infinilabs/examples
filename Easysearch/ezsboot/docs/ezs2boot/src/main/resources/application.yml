@@ -5,12 +5,12 @@ server:
 #easysearch 连接信息
 easysearch:
   enable: true
-  host: 127.0.0.1:9205
+  host: 127.0.0.1:9200
   connTimeout: 3000
   socketTimeout: 5000
   connectionRequestTimeout: 1000
   username: admin
-  password: admin
+  password: c1e3c78bba17dad9fa0d
 
 # 配置swagger文档的访问路径，访问地址：http://127.0.0.1:8080/swagger-ui.html
 springdoc:
@@ -52,7 +52,7 @@ easysearch:
   socketTimeout: 5000
   connectionRequestTimeout: 1000
   username: admin
-  password: admin
+  password: c1e3c78bba17dad9fa0d
 spring:
   config:
     activate:
