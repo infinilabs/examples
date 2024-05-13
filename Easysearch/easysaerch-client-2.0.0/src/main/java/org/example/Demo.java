@@ -37,11 +37,9 @@ import java.util.Properties;
 
 /**
  * Easysearch Client demo
- *
  */
-public class Demo 
-{
-    public static void main( String[] args ) throws IOException {
+public class Demo {
+    public static void main(String[] args) throws IOException {
         String dir = System.getProperty("user.dir");
         Properties prop = new Properties();
         Path path = Paths.get(dir, "src", "main", "resources", "application.conf");
@@ -54,7 +52,7 @@ public class Demo
         String csvFile = prop.getProperty("csv-file");
         String csvPath = Paths.get(dir, "src", "main", "resources", csvFile).toString();
 
-        EasysearchClient client = initEasysearchClient(serverUrl,username, password);
+        EasysearchClient client = initEasysearchClient(serverUrl, username, password);
 
         if (!client.indices().exists(ex -> ex.index("books")).value()) {
             client.indices()
@@ -65,7 +63,7 @@ public class Demo
                                     .properties("title", p -> p.text(t -> t))
                                     .properties("description", p -> p.text(t -> t))
                                     .properties("author", p -> p.text(t -> t))
-                                    .properties("year", p -> p.short_(s -> s))
+                                    .properties("year", p -> p.text(s -> s))
                                     .properties("publisher", p -> p.text(t -> t))
                                     .properties("ratings", p -> p.halfFloat(hf -> hf))
                             ));
@@ -102,6 +100,7 @@ public class Demo
         while (hasNext) {
             try {
                 Book book = it.nextValue();
+                System.out.println(book);
                 ingester.add(BulkOperation.of(b -> b
                         .index(i -> i
                                 .index("books")
@@ -110,7 +109,7 @@ public class Demo
                                 .document(book))));
                 hasNext = it.hasNextValue();
             } catch (JsonParseException | InvalidFormatException e) {
-                // ignore malformed data
+                System.out.println(e);
             }
         }
 
@@ -121,9 +120,11 @@ public class Demo
         Instant end = Instant.now();
 
         System.out.println("Finished in: " + Duration.between(start, end).toMillis() + "\n");
+
+        System.exit(0);
     }
 
-    public static EasysearchClient initEasysearchClient(String serverUrl,String user, String password) {
+    public static EasysearchClient initEasysearchClient(String serverUrl, String user, String password) {
         try {
             String[] urls = serverUrl.split(",");
             HttpHost[] httpHostArray = new HttpHost[urls.length];
@@ -151,7 +152,7 @@ public class Demo
 
             JacksonJsonpMapper jsonpMapper = new JacksonJsonpMapper(JsonMapper.builder().build());
 
-            return new EasysearchClient(new RestClientTransport(restClient,jsonpMapper));
+            return new EasysearchClient(new RestClientTransport(restClient, jsonpMapper));
         } catch (Exception e) {
             throw new RuntimeException("Failed to create Easysearch client", e);
         }

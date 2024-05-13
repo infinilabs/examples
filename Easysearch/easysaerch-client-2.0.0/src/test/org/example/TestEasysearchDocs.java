@@ -20,6 +20,7 @@ import com.infinilabs.clients.easysearch.core.search.TotalHits;
 import com.infinilabs.clients.easysearch.core.search.TotalHitsRelation;
 import com.infinilabs.clients.json.JsonData;
 import com.infinilabs.clients.util.ObjectBuilder;
+import org.example.domain.GenericProduct;
 import org.example.domain.Product;
 import org.junit.Test;
 
@@ -33,18 +34,29 @@ import java.util.function.Function;
 public class TestEasysearchDocs extends TestBase {
 
     @Test
+    public void testInsertGenericDocWithId() throws IOException {
+        if (!client.indices().exists(ex -> ex.index("products")).value()) {
+            client.indices().create(c -> c.index("products"));
+        }
+        GenericProduct product = new GenericProduct<Object>("gp-1", "New Generic product");
+
+        IndexResponse response = client.index(i -> i.index("products").id((String) product.getId()).document(product));
+
+        System.out.println("Indexed with version " + response.version());
+
+    }
+
+    @Test
     public void testInsertDocWithId() throws IOException {
         if (!client.indices().exists(ex -> ex.index("products")).value()) {
             client.indices().create(c -> c.index("products"));
-
-            Product product = new Product("bk-1", "City bike", 123.0);
-
-            IndexResponse response = client.index(i -> i.index("products").id(product.getSku()).document(product));
-
-            System.out.println("Indexed with version " + response.version());
-        } else {
-            System.out.println("the index exists,please delete it and test again.");
         }
+        Product product = new Product("bk-1", "City bike", 123.0);
+
+        IndexResponse response = client.index(i -> i.index("products").id(product.getSku()).document(product));
+
+        System.out.println("Indexed with version " + response.version());
+
     }
 
     @Test
@@ -137,7 +149,7 @@ public class TestEasysearchDocs extends TestBase {
 
     @Test
     public void testFindWthNestedQueries() {
-        String searchText= "bike";
+        String searchText = "bike";
         Double price = 123.0;
         Query byName = MatchQuery.of(q -> q.field("name").query(searchText))._toQuery();
         Query byMaxPrice = RangeQuery.of(q -> q.field("price").gte(JsonData.of(price)))._toQuery();

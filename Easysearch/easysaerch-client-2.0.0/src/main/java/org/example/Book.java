@@ -28,13 +28,7 @@ public class Book implements Serializable {
     private Float ratings;
 
     // 添加带有 @JsonProperty 注解的属性的构造函数
-    public Book(@JsonProperty("id") String id,
-                @JsonProperty("title") String title,
-                @JsonProperty("description") String description,
-                @JsonProperty("author") String author,
-                @JsonProperty("year") String year,
-                @JsonProperty("publisher") String publisher,
-                @JsonProperty("ratings") Float ratings) {
+    public Book(@JsonProperty("id") String id, @JsonProperty("title") String title, @JsonProperty("description") String description, @JsonProperty("author") String author, @JsonProperty("year") String year, @JsonProperty("publisher") String publisher, @JsonProperty("ratings") Float ratings) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -102,14 +96,6 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id='" + id + '\'' +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", author='" + author + '\'' +
-                ", year=" + year +
-                ", publisher='" + publisher + '\'' +
-                ", ratings=" + ratings +
-                '}';
+        return "Book{" + "id='" + id + '\'' + "title='" + title + '\'' + ", description='" + description + '\'' + ", author='" + author + '\'' + ", year=" + year + ", publisher='" + publisher + '\'' + ", ratings=" + ratings + '}';
     }
 }
