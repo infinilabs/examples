@@ -61,6 +61,7 @@ public class Demo
                     .create(c -> c
                             .index("books")
                             .mappings(mp -> mp
+                                    .properties("id", p -> p.text(t -> t))
                                     .properties("title", p -> p.text(t -> t))
                                     .properties("description", p -> p.text(t -> t))
                                     .properties("author", p -> p.text(t -> t))
@@ -75,7 +76,8 @@ public class Demo
 
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = CsvSchema.builder()
-                .addColumn("title") // same order as in the csv
+                .addColumn("id") // same order as in the csv
+                .addColumn("title")
                 .addColumn("description")
                 .addColumn("author")
                 .addColumn("year")
@@ -103,6 +105,8 @@ public class Demo
                 ingester.add(BulkOperation.of(b -> b
                         .index(i -> i
                                 .index("books")
+                                // 使用自定义的id
+                                .id(book.getId())
                                 .document(book))));
                 hasNext = it.hasNextValue();
             } catch (JsonParseException | InvalidFormatException e) {

@@ -6,6 +6,9 @@ import com.sun.org.apache.xml.internal.serialize.Serializer;
 import java.io.Serializable;
 
 public class Book implements Serializable {
+
+    @JsonProperty("id")
+    private String id;
     @JsonProperty("title")
     private String title;
 
@@ -16,7 +19,7 @@ public class Book implements Serializable {
     private String author;
 
     @JsonProperty("year")
-    private Integer year;
+    private String year;
 
     @JsonProperty("publisher")
     private String publisher;
@@ -25,18 +28,28 @@ public class Book implements Serializable {
     private Float ratings;
 
     // 添加带有 @JsonProperty 注解的属性的构造函数
-    public Book(@JsonProperty("title") String title,
+    public Book(@JsonProperty("id") String id,
+                @JsonProperty("title") String title,
                 @JsonProperty("description") String description,
                 @JsonProperty("author") String author,
-                @JsonProperty("year") Integer year,
+                @JsonProperty("year") String year,
                 @JsonProperty("publisher") String publisher,
                 @JsonProperty("ratings") Float ratings) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.author = author;
         this.year = year;
         this.publisher = publisher;
         this.ratings = ratings;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -63,11 +76,11 @@ public class Book implements Serializable {
         this.author = author;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -90,6 +103,7 @@ public class Book implements Serializable {
     @Override
     public String toString() {
         return "Book{" +
+                "id='" + id + '\'' +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", author='" + author + '\'' +

@@ -1,6 +1,15 @@
-title;description;author;year;publisher;ratings
-The Great Gatsby;A novel about the American Dream;F. Scott Fitzgerald;1925;Scribner;4.1
-To Kill a Mockingbird;A novel set in the American South;Harper Lee;1960;J.B. Lippincott & Co.;4.5
-1984;A dystopian novel;George Orwell;1949;Secker & Warburg;4.7
-Pride and Prejudice;A romantic novel;Jane Austen;1813;T. Egerton, Whitehall;4.6
-The Catcher in the Rye;A coming-of-age novel;J.D. Salinger;1951;Little, Brown and Company;4.3
+id;title;description;author;year;publisher;ratings
+1;The Great Gatsby;A novel about the American Dream;F. Scott Fitzgerald;1925;Scribner;4.1
+2;To Kill a Mockingbird;A novel set in the American South;Harper Lee;1960;J.B. Lippincott & Co.;4.5
+3;1984;A dystopian novel;George Orwell;1949;Secker & Warburg;4.7
+4;Pride and Prejudice;A romantic novel;Jane Austen;1813;T. Egerton, Whitehall;4.6
+5;The Catcher in the Rye;A coming-of-age novel;J.D. Salinger;1951;Little, Brown and Company;4.3
+6;红楼梦;中国古典小说，以贾宝玉、林黛玉、薛宝钗等人物为主要角色，描写了贾府的兴衰和人生百态;曹雪芹;18世纪;不详;4.7
+7;三国演义;中国古典小说，以三国时期的历史为背景，讲述了魏、蜀、吴三国之间的政治斗争和军事战争;罗贯中;14世纪;不详;4.6
+8;西游记;中国古典小说，描写了孙悟空等人物历经九九八十一难，西天取经的故事;吴承恩;16世纪;不详;4.8
+9;水浒传;中国古典小说，以宋江等人物为主要角色，描写了108位好汉的义薄云天，抗金反元的故事;施耐庵;14世纪;不详;4.5
+10;道德经;中国古典哲学著作，集老子思想之精华，论述了道、德、无为等哲学概念;老子;约6世纪前后;不详;4.9
+11;孙子兵法;中国古典军事著作，以孙武的兵法思想为主，阐述了战争策略、兵法原理等内容;孙武;约5世纪前后;不详;4.7
+12;荀子;中国古典哲学著作，荀子的哲学思想主要围绕人性、政治、道德等方面展开;荀子;约3世纪前后;不详;4.5
+13;尚书;中国古代史书，收录了周、商、西周等历代的重要史事和文献资料;不详;不详;不详;4.6
+14;论语;中国古代儒家经典，记载了孔子及其弟子的言行和思想，是中国儒家思想的重要代表之一;孔子及其弟子;不详;不详;4.8
