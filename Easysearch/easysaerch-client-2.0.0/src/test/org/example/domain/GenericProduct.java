@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GenericProduct<T> {
 
-    private T id;
+  private T id;
 
-    private String Name;
+  private String Name;
 }
