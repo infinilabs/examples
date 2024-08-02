@@ -1,0 +1,17 @@
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>内部知识问答系统</h1>
+            <img src="{{ url_for('static', filename='1.png') }}" alt="infini logo" width="300"> 
+        </div>
+        <form method="POST">
+            <label for="question">输入你的问题:</label><br>
+            <input type="text" id="question" name="question" style="width: 300px;height: 35px;"><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if result is defined %}
+            <h2>Answer</h2>
+            <p>{{ result.result }}</p>
+        {% endif %}
+    </div>
+</body>
